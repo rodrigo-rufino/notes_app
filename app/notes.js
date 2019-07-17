@@ -28,16 +28,16 @@ const addNote = function (title, body) {
 
 const removeNote = function (title) {
     const notes = loadNotes();
-    const newNotes = [];
-    notes.filter(function (note) {
-        if (note.title != title){
-            newNotes.push(note);
-        } else if (note.title === title) {
-            console.log(chalk.green('Note removed!'));
-        }
-    })
 
-    if (notes.length === newNotes.length) console.log(chalk.red('No note found.'));
+    const newNotes = notes.filter(function (note){
+        return note.title !== title;
+    });
+
+    if (notes.length === newNotes.length){
+        console.log(chalk.red('No note found.'));
+    } else {
+        console.log(chalk.green('Note removed!'))
+    };
 
     saveNotes(newNotes);
 }
