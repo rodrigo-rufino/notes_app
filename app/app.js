@@ -7,7 +7,7 @@ const yargs = require('yargs');
 // Customize yargs version
 yargs.version('1.1.0')
 
-// CUstomizing commands
+// Customizing commands
 yargs.command({
     command: 'add',
     describe: 'Add a new note.',
